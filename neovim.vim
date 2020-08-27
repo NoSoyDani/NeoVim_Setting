@@ -14,6 +14,9 @@ Plug 'HansPinckaers/ncm2-jedi'  " fast python completion (use ncm2 if you want t
 Plug 'ncm2/ncm2-bufword'  " buffer keyword completion
 Plug 'ncm2/ncm2-path'  " filepath completion
 Plug 'rafi/awesome-vim-colorschemes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'mhartington/oceanic-next'
 
 call plug#end()
 
@@ -49,8 +52,6 @@ set visualbell
 set relativenumber
 set viminfo='20,<1000  " allow copying of more than 50 lines to other applications
 set clipboard=unnamedplus
-
-
 autocmd vimenter * NERDTree
 
 " ncm2 settings
@@ -63,23 +64,20 @@ let ncm2#complete_length = [[1,1]]
 let g:ncm2#matcher = 'substrfuzzy'
 set pumheight=5
 
-
 "auto indent for brackets
 nmap <leader>w :w!<cr>
 nmap <leader>q :lcl<cr>:q<cr>
 nnoremap <leader>h :nohlsearch<Bar>:echo<CR>
 
-
+" Mappings
+map <F2> :NERDTreeToggle<CR>
+map <F8> :make<CR>
 
 " Options are in .pylintrc!
 highlight VertSplit ctermbg=253
 
 "Colorscheme
-
-set termguicolors
-set background=dark
-colorscheme solarized8
-
+colorscheme OceanicNext
 
 " highlight python and self function
 autocmd BufEnter * syntax match Type /\v\.[a-zA-Z0-9_]+\ze(\[|\s|$|,|\]|\)|\.|:)/hs=s+1
